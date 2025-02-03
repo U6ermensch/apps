@@ -3,10 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Мини-приложение</title>
+    <title>Мини-приложение с анимацией</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden; /* Скрываем всё, что выходит за пределы экрана */
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            position: relative;
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            color: #666;
+        }
+        /* Стили для движущегося круга */
+        .circle {
+            width: 50px;
+            height: 50px;
+            background-color: #007bff;
+            border-radius: 50%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            animation: moveCircle 5s linear infinite; /* Анимация движения */
+        }
+        /* Анимация движения круга */
+        @keyframes moveCircle {
+            0% {
+                top: 0;
+                left: 0;
+            }
+            25% {
+                top: 0;
+                left: calc(100% - 50px);
+            }
+            50% {
+                top: calc(100% - 50px);
+                left: calc(100% - 50px);
+            }
+            75% {
+                top: calc(100% - 50px);
+                left: 0;
+            }
+            100% {
+                top: 0;
+                left: 0;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>Привет, это мини-приложение!</h1>
-    <p>Здесь может быть любой контент.</p>
+    <div class="container">
+        <h1>Привет, это мини-приложение!</h1>
+        <p>Здесь может быть любой контент.</p>
+        <!-- Движущийся круг -->
+        <div class="circle"></div>
+    </div>
 </body>
 </html>
